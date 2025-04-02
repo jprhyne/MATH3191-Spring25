@@ -1,0 +1,4 @@
+# Exclude markdown files
+*md
+# Exclude exam files
+**/test/

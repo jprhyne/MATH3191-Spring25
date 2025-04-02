@@ -1,0 +1,5 @@
+# Exclude student submissions
+python/
+**/feedback
+**/submissions
+**/xopp

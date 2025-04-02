@@ -1,0 +1,16 @@
+% Allows for key value changes
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=mystyle,prefix=mystyle@}
+\DeclareStringOption[1in]{margins}
+\ProcessKeyvalOptions*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Package imports                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=\mystyle@margins]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathdots,enumerate,thmtools,mathtools}
+\usepackage{graphicx,xcolor,caption,subcaption}
+\usepackage{hyperref,algorithm,algcompatible,algpseudocode}
+\usepackage[english]{babel}
+\usepackage[colorinlistoftodos]{todonotes}
+% Used to write the blackboard 1
+\usepackage{bbm}

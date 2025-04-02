@@ -1,0 +1,13 @@
+# Exclude all intermediary tex files
+*aux
+*log
+*out
+
+# Exclude all zip files
+*zip
+
+# exclude checkpoints for jupyter notebooks
+*.ipynb_checkpoints/
+
+# Exclude the syllabus directory
+syllabus/

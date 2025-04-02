@@ -1,0 +1,158 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Theorem definitions                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defin}{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\newtheorem{remark}{Remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Symbols and other shortcuts I use                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\x}{\vec{x}}
+\newcommand{\y}{\vec{y}}
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\Z}{\mathbb{Z}} 
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+% Probability of X
+\newcommand{\p}[1]{\mathbb{P}\left[#1\right]}
+% Probability of X given Y
+\newcommand{\pg}[2]{\mathbb{P}\left[#1\left|#2\right.\right]}
+\newcommand{\1}{\mathbbm{1}}
+\DeclareMathOperator{\Ex}{\mathbb{E}}   % expected value 
+\DeclareMathOperator{\Varx}{\text{Var}}   % expected value 
+\DeclareMathOperator{\fl}{\mathrm{fl}}  % floating point number
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+
+% Expected value of X
+\newcommand{\E}[1]{\Ex\left[#1\right]}
+% Expected value of X given Y
+\newcommand{\Eg}[2]{\Ex\left[\left.#1\right|#2\right]}
+% Variance of X
+\newcommand{\Var}[1]{\Varx\left(#1\right)}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+% derivative of first argument with respect to second argument.
+\newcommand{\dd}[2]{\dfrac{d}{d#2}\left(#1\right)}
+% derivative with respect to x
+\newcommand{\ddx}[1]{\dd{#1}{x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Taken from Professor Saibaba's "classnotes.sty" to make	%
+%         compiling homework much more streamlined		%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Spaces
+\newcommand{\rn}{\mathbb{R}^{n}}
+\newcommand{\rnn}{\mathbb{R}^{n\times n}}
+\newcommand{\rmn}{\mathbb{R}^{m\times n}}
+\newcommand{\cn}{\mathbb{C}^{n}}
+\newcommand{\cnn}{\mathbb{C}^{n\times n}}
+\newcommand{\cmn}{\mathbb{C}^{m\times n}}
+
+
+%Various possibilities for inner products and norms
+\newcommand{\inner}[2]{\langle #1\mid #2\rangle}
+\newcommand{\norm}[2]{\left\|#1\right\|_{#2}}
+\newcommand{\normf}[1]{\left\|#1\right\|_{F}}
+\newcommand{\normtwo}[1]{\left\|#1\right\|_{2}}
+\newcommand{\normp}[1]{\left\|#1\right\|_{p}}
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\boldsymbol{#1}}
+\newcommand{\B}[1]{\boldsymbol{#1}}
+\newcommand{\vect}[1]{\widetilde{\boldsymbol{#1}}}
+\newcommand{\matt}[1]{\widetilde{\boldsymbol{#1}}}
+
+%Column and row equivalence
+\newcommand{\roweq}{\stackrel{\text{row}}{\sim}}
+\newcommand{\coleq}{\stackrel{\text{col}}{\sim}}
+
+%Vector spaces
+\newcommand{\rank}{\text{rank}\,}
+\renewcommand{\dim}{\text{dim}\,}
+\newcommand{\Span}[1]{\text{Span}\,\{#1\}}
+\newcommand{\basis}[1]{\left\{ #1\right\}}
+\newcommand{\nullS}{\text{null}\,}
+
+%Matrix environments
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+
+%Trace and determinant
+\newcommand{\diag}{\mathsf{diag}\,}
+\newcommand{\range}{\mathsf{range}\,}
+\newcommand{\trace}{\mathsf{trace}\,}
+
+
+\newcommand{\factenv}[1]{\begin{fact}#1\end{fact}}
+
+
+%Multiplicities
+\newcommand{\geo}{\text{geo mult}\,}
+\newcommand{\alg}{\text{alg mult}\,}
+
+%Real and imaginary
+\newcommand{\real}{\text{Re}}
+\newcommand{\imag}{\text{Im}}
+
+%Helps facilitate the way I am doing the problem solutions in the linear algebra prelim tutoring
+\newcommand{\secName}[1]{\textbf{\underline{#1}}:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Purple solution background if exam class. Only shows up if  %
+%   answers option is included. Otherwise, solution is a new    %
+%                   theorem environment                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifclassloaded{exam}{
+\usepackage{color}
+\usepackage{graphicx}
+
+\definecolor{SolutionColor}{rgb}{0.1,0.3,1}
+
+\unframedsolutions
+\shadedsolutions
+\definecolor{SolutionColor}{rgb}{0.9,0.9,1}
+\renewcommand{\solutiontitle}{\textbf{Solution: }}
+}{
+\newtheoremstyle{sol}
+{3pt}
+{3pt}
+{}
+{}
+{\bfseries}
+{:}
+{.5em}
+{}
+\theoremstyle{sol}
+\newtheorem*{solution}{Solution}
+}
+
+\newcommand{\aMat}[2]{\left[
+        \begin{array}{#1}
+            #2
+        \end{array}
+    \right]}

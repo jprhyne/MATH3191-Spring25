@@ -1,0 +1,146 @@
+%\usepackage{beamerthemesplit}
+%\usetheme{default}
+%[\usecolortheme[named=BrickRed]{structure}
+\usetheme{CambridgeUS}
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}{}
+\setbeamertemplate{items}[default]
+% Dark purple color
+\definecolor{MyPurple}{RGB}{86,0,179}
+% Bullet point color
+\setbeamercolor{item}{fg=MyPurple}
+\definecolor{LightGray}{RGB}{217,217,217}
+\definecolor{LighterGray}{RGB}{242,242,242}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+% Sets the background of the example box to be a really light grey
+\setbeamercolor{block body example}{bg=LighterGray}
+% Sets the background of the title in examples to be purple using white text
+\setbeamercolor{block title example}{use={normal text,example text},fg=White,bg=MyPurple}
+% Sets the bottom left box to have purple background with really light grey text
+\setbeamercolor{palette tertiary}{fg=LighterGray, bg=MyPurple}
+% Use purple text on the other boxes
+\setbeamercolor{palette secondary}{fg=MyPurple}
+\setbeamercolor{palette primary}{fg=MyPurple}
+% Make the frametitles use purple text
+\setbeamercolor{frametitle}{fg=MyPurple}
+\usepackage{enumerate,tasks,multicol,tcolorbox,hyperref,xcolor}
+\usepackage{listings}
+\lstset{language=Python,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+   otherkeywords={0,1,2,3,4,5,6,7,8,9},
+   morekeywords={TRUE,FALSE,as},
+    deletekeywords={data,frame,length,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{CadmiumGreen},
+}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{algorithm,algorithmic}
+
+\newcounter{results}
+\newtheorem{thm}[results]{Theorem}
+\newtheorem{cor}[results]{Corollary}
+\newtheorem{lem}[results]{Lemma}
+\newtheorem{prop}[results]{Proposition}
+\newtheorem{conj}[results]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{defn}[results]{Definition}
+\newtheorem{rem}[results]{Remark}
+\newtheorem{ex}[results]{Example}
+\newtheorem{practice}[results]{Practice}
+
+\newcommand{\remark}[1]{}
+\renewcommand{\remark}[1]{\emph{Remark.} #1}
+
+\def \ee {\end{enumerate}}
+\def \bb {\begin{enumerate}}
+\def \ii {\item}
+\def \ei {\end{itemize}}
+\def \bi {\begin{itemize}}
+\def \lb {\lbrack}
+\def \rb {\rbrack}
+\def \d {\displaystyle}
+\def \p {\pause}
+\def\tw {\textwidth}
+\def \bs {\bigskip}
+\def \ms {\medskip}
+\def \ss {\smallskip}
+\def \bbox {\begin{tcolorbox}}
+\def \ebox {\end{tcolorbox}}
+\def \dsty {\displaystyle}
+\def \colorb{\textcolor{blue}}
+\def \colorr{\textcolor{red}}
+\def \colorg{\textcolor{ForestGreen}}
+\def \colorp{\textcolor{Purple}}
+\def\P{\mathcal{P}}
+\def \SE {\mbox{SE}\lb T \rb}
+\def \SEhat {\hat{\mbox{SE}}\lb T \rb}
+\def \Exp {\mbox{E}}
+\def \Var{\mbox{Var}}
+\def \bR {\begin{lstlisting} }
+\def \eR {\end{lstlisting} }
+\def\MLE {\mathbf{\hat{\theta}_{\rm MLE}}}
+\def\bsq {\blacksquare}
+\def\mbf {\mathbf}
+\def \bbm {\begin{bmatrix}}
+\def \ebm {\end{bmatrix}}
+
+%\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
+\title{Math 3191}
+\author{Johnathan Rhyne}
+\institute{CU Denver}
+% To only show solutions when needed
+\usepackage{etoolbox}
+\providetoggle{showSolutions}
+\newcommand{\instring}[4]{%
+    % \instring{<pattern>}{<string>}{<true>}{<false>}
+    %   pattern = sought after string
+    %   string  = string to search
+    \ifnum\pdfmatch{#1}{#2}=1
+        #3%
+    \else
+        #4%
+    \fi
+}
+% If the filename contains the string "beforeClass", then we don't want to have solutions displayed.
+%   Otherwise, we display solutions to example problems
+\instring{beforeClass}{\jobname}{%
+    \settoggle{showSolutions}{false}
+}{%
+    \settoggle{showSolutions}{true}
+}
+% Some colorblind friendly contrasting colors along with coloring helpers for beamer
+\definecolor{myRed}{RGB}{220,50,32}
+\definecolor{myBlue}{RGB}{0,90,181}
+\newcommand{\rTextWait}[2]{\textcolor<#2>{myRed}{#1}}
+\newcommand{\bTextWait}[2]{\textcolor<#2>{myBlue}{#1}}
+\newcommand{\rText}[1]{\textcolor{myRed}{#1}}
+\newcommand{\bText}[1]{\textcolor{myBlue}{#1}}
+% Helps making augmented matrices with the vertical bar easier
+\newcommand{\aMat}[2]{\left[
+        \begin{array}{#1}
+            #2
+        \end{array}
+    \right]}
+
+\newcommand{\R}{\mathbb{R}}
+\let\vecOld\vec
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\let\dimOld\dim
+\renewcommand{\dim}[1]{\dimOld\left(#1\right)}
+\newcommand{\Span}[1]{\text{Span}\left(#1\right)}
+\newcommand{\set}[2]{\left\{#1\left|#2\right\}\right.}
+\newcommand{\setBasic}[1]{\left\{#1\right\}}
+\let\detOld\det
+\renewcommand{\det}[1]{\detOld\left(#1\right)}
+\newcommand{\trace}[1]{\mathrm{Tr}\left(#1\right)}
+\newcommand{\nullS}[1]{\mathrm{Nul}\left(#1\right)}
+\newcommand{\colS}[1]{\mathrm{Col}\left(#1\right)}
+\newcommand{\bMat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\image}[1]{\mathrm{Im}\left(#1\right)}
+\newcommand{\range}[1]{\mathrm{Range}\left(#1\right)}
+\newcommand{\rowS}[1]{\mathrm{Row}\left(#1\right)}
+\newcommand{\rank}[1]{\mathrm{rank}\left(#1\right)}
+\newcommand{\bCoord}[2]{\left[#1\right]_{#2}}
